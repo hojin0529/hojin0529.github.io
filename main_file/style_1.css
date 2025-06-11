@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url('art2.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
+  padding: 40px 80px;
+}
+
+.left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  padding-top: 60px;
+  padding-left: 10px;
+}
+
+.left h1 {
+  font-size: 5.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.left h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #dcdcdc;
+}
+
+.date {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  font-size: 0.9em;
+  font-weight: 100;
+  color: #cccccc;
+}
+
+.right {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  gap: 60px;
+}
+
+.divider {
+    align-self: stretch;
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+  font-weight: 900;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #aaa;
+}

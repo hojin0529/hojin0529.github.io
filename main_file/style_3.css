@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom, #000, #222);
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  padding: 60px 80px;
+}
+
+/* 왼쪽 패널 */
+.left-panel {
+  text-align: center;
+  width: 280px;
+}
+
+.profile-title {
+  text-align: left;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.eng-name {
+  font-style: italic;
+  font-size: 1em;
+}
+
+.email {
+  color: #ccc;
+  margin: 10px 0;
+  font-size: 0.9em;
+}
+
+.icons {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  gap: 10px 16px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.icons img {
+  width: 36px;
+  height: 36px;
+}
+
+/* 오른쪽 패널 */
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex: 1;
+  max-width: 700px;
+  border-left: 1px solid #555;
+  padding-left: 60px;
+}
+
+.section h3 {
+  font-size: 1.3em;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.section ul {
+  list-style: none;
+  line-height: 1.8;
+  font-size: 0.95em;
+  color: #ddd;
+}
+
+.section p {
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #ccc;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Graphics Midterm</title>
+  <link rel="stylesheet" href="style_2.css" />
+  <style>
+    .right-img,
+    .left-img {
+      cursor: pointer;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .image-section {
+      margin-bottom: 40px;
+    }
+
+    .footer-text {
+      margin-top: 60px;
+      padding: 10px 20px;
+      font-size: 10px;
+      color: #666;
+      text-align: center;
+      border-top: 1px solid #aaa; /* 선 색상을 #aaa로 변경 */
+      font-family: '맑은 고딕', Malgun Gothic, sans-serif;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="cursor: pointer;" onclick="location.href='index.html'">3D computer Graphics</h1>
+
+    <div class="inline-section">
+      <div class="text-box">
+        <p class="desc">
+          <em>Screw, Modifier, Array</em> 등의 배치 기능들을 활용하여 제작하였습니다.<br>
+          Adobe Illustrator와 Adobe Photoshop을 활용해서 <em>Image Texture</em> 사용 후 이미지를 만들어내고,<br>
+          Blender 기능인 <em>Image Texture, Texture Paint</em> 등을 통해 <em>External material</em>을 포함하였습니다.
+        </p>
+      </div>
+      <div class="info-inline">
+        <div>
+          <strong>Period</strong>
+          <p>25.04.15 ~ 25.04.29</p>
+        </div>
+
+        <div>
+          <strong>Contribution</strong>
+          <p>1인 100% 기획 및 제작</p>
+        </div>
+
+        <div>
+          <strong>My Activity</strong>
+          <p>블렌더 모델링<br>포토샵 텍스처</p>
+        </div>
+
+        <div class="tools">
+          <strong>Used Tool</strong>
+          <div>
+            <img src="photoshop_5968520.png" alt="PS" />
+            <img src="illustrator_5968472.png" alt="AI" />
+            <img src="blander.png" alt="Blender" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="image-section">
+      <img
+        src="p1.png"
+        alt="작업 이미지"
+        class="left-img"
+        onclick="location.href='empty4.html'"
+      />
+
+      <img
+        src="untitled.png"
+        alt="작업 이미지2"
+        class="right-img"
+        onclick="location.href='empty3.html'"
+      />
+    </div>
+
+    <div class="footer-text">
+      본 페이지는 포트폴리오 용도로 제작되었습니다. 작업물의 무단 배포를 금지합니다.<br />
+      Contact: khj44466713@gmail.com<br />
+      © 2025 by hojin gang.
+    </div>
+  </div>
+</body>
+</html>

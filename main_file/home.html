@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home & Guestbook</title>
+  <link rel="stylesheet" href="style_5.css" />
+</head>
+<body>
+  <div class="bg-overlay"></div>
+  <div class="container">
+    <h1 onclick="location.href='index.html'">Welcome to Home Page</h1>
+
+    <!-- 포트폴리오 설명 섹션 -->
+    <div class="section">
+      <h2>페이지 구성 설명</h2>
+      <p>저의 디자인 포트폴리오는 총 3페이지로 구성되어 있으며, <strong>Home</strong>, <strong>Profile</strong>, <strong>Project</strong>로 구성되어 있습니다.</p>
+      <p><strong>Profile</strong>은 좌측에 프로필과 이미지, 이름, 사용 가능한 툴 및 아이콘이 있고, 우측에는 학력, 실무 스킬, 디자인 철학이 포함된 소개 페이지입니다.</p>
+      <p><strong>Project</strong>은 작업물을 보여주는 갤러리 형식의 페이지로, 2개의 이미지 박스로 구성되어 있으며 클릭 시 세부 정보를 보여줄 수 있습니다.</p>
+      <p><strong>Home</strong>은 현재 페이지로, 전체 구조 설명을 통해 사용자 이해를 돕기 위한 소개 페이지입니다.</p>
+      <p>모든 페이지에서는 제목을 누를 시 메인화면으로 돌아갈 수 있습니다.</p>
+    </div>
+
+    <!-- 방명록 섹션 -->
+    <div class="guestbook">
+      <div class="guestbook-form">
+        <h2>간단한 방명록을 남겨보세요!!</h2>
+        <p>욕설 및 비방은 삼가해 주세요..</p>
+        <input type="text" id="name" placeholder="이름" />
+        <textarea id="message" placeholder="간단한 방명록을 적어보세요!!"></textarea>
+        <button onclick="addMessage()">등록</button>
+      </div>
+
+      <div class="guestbook-list" id="guestbookList"></div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', loadMessages);
+
+    function loadMessages() {
+      const list = document.getElementById('guestbookList');
+      const messages = JSON.parse(localStorage.getItem('messages')) || [];
+
+      list.innerHTML = '';
+      messages.forEach((msg, index) => {
+        list.innerHTML += generateMessageHTML(msg, index);
+      });
+    }
+
+    function addMessage() {
+      const name = document.getElementById('name').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const time = new Date().toLocaleString('ko-KR');
+
+      if (!name || !message) {
+        alert('이름과 메시지를 모두 입력해주세요.');
+        return;
+      }
+
+      const newMsg = {
+        name,
+        message,
+        time,
+        likes: 0,
+        dislikes: 0
+      };
+
+      const messages = JSON.parse(localStorage.getItem('messages')) || [];
+      messages.unshift(newMsg);
+      localStorage.setItem('messages', JSON.stringify(messages));
+
+      document.getElementById('name').value = '';
+      document.getElementById('message').value = '';
+      loadMessages();
+    }
+
+    function like(index) {
+      const messages = JSON.parse(localStorage.getItem('messages'));
+      messages[index].likes++;
+      localStorage.setItem('messages', JSON.stringify(messages));
+      loadMessages();
+    }
+
+    function dislike(index) {
+      const messages = JSON.parse(localStorage.getItem('messages'));
+      messages[index].dislikes++;
+      localStorage.setItem('messages', JSON.stringify(messages));
+      loadMessages();
+    }
+
+    function deleteMessage(index) {
+      const messages = JSON.parse(localStorage.getItem('messages'));
+      messages.splice(index, 1);
+      localStorage.setItem('messages', JSON.stringify(messages));
+      loadMessages();
+    }
+
+    function generateMessageHTML(msg, index) {
+      return `
+        <div class="message">
+          <h3>${msg.name}</h3>
+          <p>${msg.message}</p>
+          <time>${msg.time}</time>
+          <div class="reactions">
+            <button onclick="like(${index})">👍 ${msg.likes}</button>
+            <button onclick="dislike(${index})">👎 ${msg.dislikes}</button>
+            <button class="delete-btn" onclick="deleteMessage(${index})">🗑 삭제</button>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
